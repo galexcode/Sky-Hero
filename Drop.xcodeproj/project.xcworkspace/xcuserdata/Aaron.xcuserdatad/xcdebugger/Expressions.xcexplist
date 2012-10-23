@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[GameScene initPauseButton]:GameScene.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "pause.contentSize.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[Entity isInsideScreenArea]:Entity.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[GameScene screenRect]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[GameScene initPlayer]:GameScene.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[CurveMoveComponent initWithBezierConfig:]:CurveMoveComponent.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.parent">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[Entity setPosition:]:Entity.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[self boundingBox]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CurveMoveComponent move]:CurveMoveComponent.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.parent">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[UFO initWithAnimation]:UFO.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
