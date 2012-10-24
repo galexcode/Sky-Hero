@@ -11,18 +11,8 @@
 
 @implementation BasicMoveComponent
 @synthesize velocity,acceleration;
--(id)init
-{
-    if(self = [super init])
-    {
-        [self initiation];
-    }
-    return self;
-}
--(void)initiation
-{
-    
-}
+@synthesize duration;
+
 -(void)move
 {
     

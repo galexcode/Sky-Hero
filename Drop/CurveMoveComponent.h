@@ -13,6 +13,6 @@
 @interface CurveMoveComponent : BasicMoveComponent {
     ccBezierConfig bezierConfig;
 }
-+(id)curveMoveComponent:(ccBezierConfig)theBezierConfig;
++(id)instanceWithBezierConfig:(ccBezierConfig)theBezierConfig;
 -(id)initWithBezierConfig:(ccBezierConfig)theBezierConfig;
 @end

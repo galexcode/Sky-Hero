@@ -8,13 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "Initiation.h"
 
-@interface BasicMoveComponent : CCSprite <Initiation>{
+@interface BasicMoveComponent : CCSprite{
     CGPoint velocity;
     CGPoint acceleration;
+    ccTime duration;
 }
 @property (readonly,nonatomic)CGPoint velocity;
 @property (readonly,nonatomic)CGPoint acceleration;
+@property (nonatomic)ccTime duration;
 -(void)move;
 @end

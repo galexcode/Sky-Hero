@@ -31,7 +31,7 @@
         [self runAction:repeat];
         
         // Create the game logic components
-        moveComponent = [StandardMoveComponent node];
+        moveComponent = [StandardMoveComponent instanceWithEndPosition:ccp(0,0)];
 		[self addChild:moveComponent];
         
         //添加设计与子弹类型

@@ -20,17 +20,39 @@ static CCArray* spawnFrequency;
 {
     return [[[self alloc] initWithAnimation] autorelease];
 }
--(id) initWithSpriteFrameName:(NSString*)spriteFrameName
-{
-    if (self = [super initWithSpriteFrameName:spriteFrameName]) {
-        [self scheduleUpdate];
-    }
-    return self;
-}
+//-(id) initWithSpriteFrameName:(NSString*)spriteFrameName
+//{
+//    if (self = [super initWithSpriteFrameName:spriteFrameName]) {
+////        [self scheduleUpdate];
+//    }
+//    return self;
+//}
 
 -(void) update:(ccTime)delta
 {
+    //TODO 判断飞机是否飞出屏幕，需要收回资源
+    CGSize size = self.textureRect.size;
+    CGRect screenRect = [GameScene screenRect];
+    float screenWidth = screenRect.size.width;
+    float screenHeight = screenRect.size.height;
+    float halfWidth = size.width * 0.5;
+    float halfHeight = size.height * 0.5;
+    if (!isOnScreen && CGRectContainsRect(screenRect, [self boundingBox])) {
+        isOnScreen = YES;
+    }
+    if (isOnScreen && (self.position.x - halfWidth > screenWidth || self.position.x + halfWidth < 0 || self.position.y - halfHeight > screenHeight || self.position.y + halfHeight < 0)) {
+        //out of boundary
+        self.visible = NO;
+        //不在屏幕上
+        isOnScreen = NO;
+        //stop actions to prevent wrong moves
+        [self stopAllActions];
+        //停止监听
+        [self unscheduleUpdate];
+        return;
+    }
     //TODO 改变飞机的飞行动画，左、右，前进
+    
     //改变飞机的朝向，保持与velocity一致
     CGPoint nowPosition = self.position;
     //当位置改变时改变角度信息
@@ -40,11 +62,18 @@ static CCArray* spawnFrequency;
         lastPosition = nowPosition;
     }
 }
+-(void) reset
+{
+    
+}
 
 -(void) spawn
 {
     //两步操作：1,visible设为yes;2,开始动move;【先执行子类的spawn再调用父类】
 	// Finally set yourself to be visible
+    //开始逐帧监听
+    [self scheduleUpdate];
+    
 	self.visible = YES;
     
     [moveComponent move];
@@ -54,6 +83,12 @@ static CCArray* spawnFrequency;
 {
     //    CCLOG(@"enemy got hit!");
 	self.visible = NO;
+    //不在屏幕上
+    isOnScreen = NO;
+    //stop actions to prevent wrong moves
+    [self stopAllActions];
+    //停止监听
+    [self unscheduleUpdate];
     
     // Play a particle effect when the enemy was destroyed
     CCParticleSystem* system;

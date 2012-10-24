@@ -22,8 +22,12 @@ typedef enum
     EnemyTypes type;
     float shootFrequency;
     
+    BOOL isOnScreen;
+    
     //上一帧的位置
     CGPoint lastPosition;
+    
+    CGPoint startPosition;
     
     //移动方式
     BasicMoveComponent* moveComponent;
@@ -37,4 +41,5 @@ typedef enum
 -(id) initWithAnimation;
 -(void) spawn;
 -(void) gotHit;
+-(void) reset;
 @end

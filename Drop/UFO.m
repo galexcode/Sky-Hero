@@ -8,7 +8,7 @@
 
 #import "UFO.h"
 #import "CCAnimation+Helper.h"
-#import "StandardMoveComponent.h"
+#import "HoverMoveComponent.h"
 #import "StandardShootComponent.h"
 #import "GameScene.h"
 
@@ -31,9 +31,8 @@
         [self runAction:repeat];
         
         // Create the game logic components
-//        moveComponent = [StandardMoveComponent node];
-//		[self addChild:moveComponent];
-        moveComponent = [StandardMoveComponent node];
+        //TODO 修改enemy类
+        moveComponent = [HoverMoveComponent instanceWithHoverPosition:ccp(300,300)];
 		[self addChild:moveComponent];
         
         //添加设计与子弹类型
@@ -56,7 +55,7 @@
     CGRect screenRect = [GameScene screenRect];
 	CGSize spriteSize = [self contentSize];
 	float xPos = CCRANDOM_0_1() * (screenRect.size.width - spriteSize.width) + spriteSize.width * 0.5f;
-	float yPos = screenRect.size.height + spriteSize.height * 0.5f;
+	float yPos = screenRect.size.height + spriteSize.height;
     
 	self.position = CGPointMake(xPos, yPos);
     

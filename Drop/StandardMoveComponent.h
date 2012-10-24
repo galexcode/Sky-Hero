@@ -11,7 +11,8 @@
 #import "BasicMoveComponent.h"
 
 @interface StandardMoveComponent : BasicMoveComponent {
-
+    CGPoint endPosition;
 }
-
++(id)instanceWithEndPosition:(CGPoint)theEndPosition;
+-(id)initWithEndPosition:(CGPoint)theEndPosition;
 @end

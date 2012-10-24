@@ -7,28 +7,26 @@
 //
 
 #import "StandardMoveComponent.h"
-#import "Entity.h"
-#import "GameScene.h"
 
 @implementation StandardMoveComponent
--(void) initiation
++(id)instanceWithEndPosition:(CGPoint)theEndPosiotion
 {
-	//继承自父类的初始化方法，无需self init
-    velocity = ccp(10,-100);
-    [self scheduleUpdate];
+    return [[[self alloc]initWithEndPosition:theEndPosiotion] autorelease];
 }
 
--(void) update:(ccTime)delta
+-(id)initWithEndPosition:(CGPoint)theEndPosition
 {
-	if (self.parent.visible)
-	{
-		NSAssert([self.parent isKindOfClass:[Entity class]], @"node is not a Entity");
-		
-		Entity* entity = (Entity*)self.parent;
-		if (entity.position.y > [GameScene screenRect].size.height * 0.5f)
-		{
-			[entity setPosition:ccpAdd(entity.position, ccpMult(velocity,delta))];
-		}
-	}
+    if(self = [super init])
+    {
+        endPosition = theEndPosition;
+        duration = 10;
+    }
+    return self;
+}
+
+-(void)move
+{
+    CCMoveTo *move = [CCMoveTo actionWithDuration:duration position:endPosition];
+    [self.parent runAction:move];
 }
 @end

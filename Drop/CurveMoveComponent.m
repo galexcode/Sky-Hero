@@ -7,12 +7,9 @@
 //
 
 #import "CurveMoveComponent.h"
-#import "Entity.h"
-#import "GameScene.h"
-
 
 @implementation CurveMoveComponent
-+(id)curveMoveComponent:(ccBezierConfig)theBezierConfig
++(id)instanceWithBezierConfig:(ccBezierConfig)theBezierConfig
 {
     return [[[self alloc]initWithBezierConfig:theBezierConfig] autorelease];
 }
@@ -22,13 +19,14 @@
     if(self = [super init])
     {
         bezierConfig = theBezierConfig;
+        duration = 3;
     }
     return self;
 }
 
 -(void)move
 {
-    CCBezierTo *move = [CCBezierTo actionWithDuration:3 bezier:bezierConfig];
+    CCBezierTo *move = [CCBezierTo actionWithDuration:duration bezier:bezierConfig];
     [self.parent runAction:move];
 }
 

@@ -32,6 +32,7 @@
 		93D3246C16356D8F002F57A3 /* BasicMoveComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D3246B16356D8F002F57A3 /* BasicMoveComponent.m */; };
 		93D324701635793A002F57A3 /* BasicShootComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D3246F1635793A002F57A3 /* BasicShootComponent.m */; };
 		93D3F8BD1629616E00F2D8EC /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D3F8BC1629616E00F2D8EC /* Bullet.m */; };
+		93DCFEFF16368AE700C1A8BE /* HoverMoveComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DCFEFE16368AE600C1A8BE /* HoverMoveComponent.m */; };
 		93E9A8CD162BBB230063FB0E /* ParallaxBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E9A8CC162BBB230063FB0E /* ParallaxBackground.m */; };
 		93EA850A162A5AF4002D8CE6 /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EA8509162A5AF4002D8CE6 /* Entity.m */; };
 		93F8FB44163421600014A521 /* OptionsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8FB43163421600014A521 /* OptionsScene.m */; };
@@ -208,11 +209,12 @@
 		93D3246816351BF5002F57A3 /* GameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverLayer.m; sourceTree = "<group>"; };
 		93D3246A16356D8E002F57A3 /* BasicMoveComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicMoveComponent.h; sourceTree = "<group>"; };
 		93D3246B16356D8F002F57A3 /* BasicMoveComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicMoveComponent.m; sourceTree = "<group>"; };
-		93D3246D1635746B002F57A3 /* Initiation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Initiation.h; sourceTree = "<group>"; };
 		93D3246E1635793A002F57A3 /* BasicShootComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicShootComponent.h; sourceTree = "<group>"; };
 		93D3246F1635793A002F57A3 /* BasicShootComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicShootComponent.m; sourceTree = "<group>"; };
 		93D3F8BB1629616E00F2D8EC /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
 		93D3F8BC1629616E00F2D8EC /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bullet.m; sourceTree = "<group>"; };
+		93DCFEFD16368AE600C1A8BE /* HoverMoveComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoverMoveComponent.h; sourceTree = "<group>"; };
+		93DCFEFE16368AE600C1A8BE /* HoverMoveComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoverMoveComponent.m; sourceTree = "<group>"; };
 		93E9A8CB162BBB230063FB0E /* ParallaxBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParallaxBackground.h; sourceTree = "<group>"; };
 		93E9A8CC162BBB230063FB0E /* ParallaxBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParallaxBackground.m; sourceTree = "<group>"; };
 		93EA8508162A5AF4002D8CE6 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
@@ -586,6 +588,8 @@
 				93D3246B16356D8F002F57A3 /* BasicMoveComponent.m */,
 				93C316E516362D2F007BC978 /* CurveMoveComponent.h */,
 				93C316E616362D2F007BC978 /* CurveMoveComponent.m */,
+				93DCFEFD16368AE600C1A8BE /* HoverMoveComponent.h */,
+				93DCFEFE16368AE600C1A8BE /* HoverMoveComponent.m */,
 			);
 			name = MoveComponent;
 			sourceTree = "<group>";
@@ -648,7 +652,6 @@
 		93FE9B3B16171A01009345A6 /* Drop */ = {
 			isa = PBXGroup;
 			children = (
-				93D3246D1635746B002F57A3 /* Initiation.h */,
 				93E9A8C9162BBA940063FB0E /* Scenes,Layers */,
 				93C5D9851626577800290023 /* Categories */,
 				93C5D97C162652D900290023 /* GameObjects */,
@@ -1262,6 +1265,7 @@
 				93D3246C16356D8F002F57A3 /* BasicMoveComponent.m in Sources */,
 				93D324701635793A002F57A3 /* BasicShootComponent.m in Sources */,
 				93C316E716362D2F007BC978 /* CurveMoveComponent.m in Sources */,
+				93DCFEFF16368AE700C1A8BE /* HoverMoveComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
