@@ -14,5 +14,5 @@
     ccBezierConfig bezierConfig;
 }
 +(id)instanceWithBezierConfig:(ccBezierConfig)theBezierConfig;
--(id)initWithBezierConfig:(ccBezierConfig)theBezierConfig;
+//-(id)initWithBezierConfig:(ccBezierConfig)theBezierConfig;
 @end

@@ -11,4 +11,6 @@
 
 @implementation BasicShootComponent
 
+@synthesize bulletFrameName;
+@synthesize shootFrequency;
 @end

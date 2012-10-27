@@ -12,6 +12,10 @@
 		9329FC8E162ADB7000563DC9 /* StandardShootComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9329FC8D162ADB7000563DC9 /* StandardShootComponent.m */; };
 		9329FC91162ADB8600563DC9 /* StandardMoveComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9329FC90162ADB8600563DC9 /* StandardMoveComponent.m */; };
 		9329FC94162AEBF200563DC9 /* EnemyCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9329FC93162AEBF100563DC9 /* EnemyCache.m */; };
+		9334C23E1637D89E0068EE25 /* Script.m in Sources */ = {isa = PBXBuildFile; fileRef = 9334C23D1637D89E0068EE25 /* Script.m */; };
+		9334C2411637DC510068EE25 /* ScriptAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 9334C2401637DC500068EE25 /* ScriptAction.m */; };
+		9334C2441637E06C0068EE25 /* ScriptFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9334C2431637E06C0068EE25 /* ScriptFactory.m */; };
+		9334C2471637E22F0068EE25 /* Episode1.m in Sources */ = {isa = PBXBuildFile; fileRef = 9334C2461637E22E0068EE25 /* Episode1.m */; };
 		93559AA71632E11E00D46A72 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 93559AA61632E11E00D46A72 /* Default.png */; };
 		93559AA91632E12600D46A72 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93559AA81632E12600D46A72 /* Default@2x.png */; };
 		93559AAB1632E20800D46A72 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93559AAA1632E20800D46A72 /* Default-568h@2x.png */; };
@@ -180,6 +184,14 @@
 		9329FC90162ADB8600563DC9 /* StandardMoveComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandardMoveComponent.m; sourceTree = "<group>"; };
 		9329FC92162AEBF100563DC9 /* EnemyCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyCache.h; sourceTree = "<group>"; };
 		9329FC93162AEBF100563DC9 /* EnemyCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyCache.m; sourceTree = "<group>"; };
+		9334C23C1637D89E0068EE25 /* Script.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Script.h; sourceTree = "<group>"; };
+		9334C23D1637D89E0068EE25 /* Script.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Script.m; sourceTree = "<group>"; };
+		9334C23F1637DC500068EE25 /* ScriptAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScriptAction.h; sourceTree = "<group>"; };
+		9334C2401637DC500068EE25 /* ScriptAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScriptAction.m; sourceTree = "<group>"; };
+		9334C2421637E06C0068EE25 /* ScriptFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScriptFactory.h; sourceTree = "<group>"; };
+		9334C2431637E06C0068EE25 /* ScriptFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScriptFactory.m; sourceTree = "<group>"; };
+		9334C2451637E22E0068EE25 /* Episode1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Episode1.h; sourceTree = "<group>"; };
+		9334C2461637E22E0068EE25 /* Episode1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Episode1.m; sourceTree = "<group>"; };
 		93559AA61632E11E00D46A72 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		93559AA81632E12600D46A72 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		93559AAA1632E20800D46A72 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -523,6 +535,21 @@
 			name = Components;
 			sourceTree = "<group>";
 		};
+		9334C23A1637D8590068EE25 /* GameScripts */ = {
+			isa = PBXGroup;
+			children = (
+				9334C2421637E06C0068EE25 /* ScriptFactory.h */,
+				9334C2431637E06C0068EE25 /* ScriptFactory.m */,
+				9334C23F1637DC500068EE25 /* ScriptAction.h */,
+				9334C2401637DC500068EE25 /* ScriptAction.m */,
+				9334C23C1637D89E0068EE25 /* Script.h */,
+				9334C23D1637D89E0068EE25 /* Script.m */,
+				9334C2451637E22E0068EE25 /* Episode1.h */,
+				9334C2461637E22E0068EE25 /* Episode1.m */,
+			);
+			name = GameScripts;
+			sourceTree = "<group>";
+		};
 		93C5D97C162652D900290023 /* GameObjects */ = {
 			isa = PBXGroup;
 			children = (
@@ -652,6 +679,7 @@
 		93FE9B3B16171A01009345A6 /* Drop */ = {
 			isa = PBXGroup;
 			children = (
+				9334C23A1637D8590068EE25 /* GameScripts */,
 				93E9A8C9162BBA940063FB0E /* Scenes,Layers */,
 				93C5D9851626577800290023 /* Categories */,
 				93C5D97C162652D900290023 /* GameObjects */,
@@ -1266,6 +1294,10 @@
 				93D324701635793A002F57A3 /* BasicShootComponent.m in Sources */,
 				93C316E716362D2F007BC978 /* CurveMoveComponent.m in Sources */,
 				93DCFEFF16368AE700C1A8BE /* HoverMoveComponent.m in Sources */,
+				9334C23E1637D89E0068EE25 /* Script.m in Sources */,
+				9334C2411637DC510068EE25 /* ScriptAction.m in Sources */,
+				9334C2441637E06C0068EE25 /* ScriptFactory.m in Sources */,
+				9334C2471637E22F0068EE25 /* Episode1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

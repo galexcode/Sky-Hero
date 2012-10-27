@@ -8,14 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "BasicShootComponent.h"
 
-@interface StandardShootComponent : CCSprite {
+@interface StandardShootComponent : BasicShootComponent {
     float updateCount;
-    float shootFrequency;
-    NSString* bulletFrameName;
 }
-@property (nonatomic) float shootFrequency;
-//设置为copy属性，保证为值拷贝
-@property (nonatomic,copy) NSString* bulletFrameName;
 
 @end

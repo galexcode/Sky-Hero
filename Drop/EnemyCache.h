@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "EnemyFactory.h"
+#import "BasicMoveComponent.h"
+#import "Bullet.h"
+
 
 @interface EnemyCache : CCSprite {
     CCSpriteBatchNode* batch;
@@ -15,5 +19,6 @@
     
     int updateCount;
 }
-
+-(void) spawnEnemyOfType:(EnemyTypes)enemyType startPosition:(CGPoint)theStartPosition moveComponent:(BasicMoveComponent*)theMoveComponent;
+@property (readonly,nonatomic)CCSpriteBatchNode* batch;
 @end

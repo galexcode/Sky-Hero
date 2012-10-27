@@ -11,6 +11,11 @@
 
 @interface BasicShootComponent : CCSprite {
     
+    float shootFrequency;
+    NSString* bulletFrameName;
 }
 
+@property (nonatomic) float shootFrequency;
+//设置为copy属性，保证为值拷贝
+@property (nonatomic,copy) NSString* bulletFrameName;
 @end

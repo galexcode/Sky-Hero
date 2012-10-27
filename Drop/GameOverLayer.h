@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface CCNode(PauseLayerHelper)
-
--(void)pauseLayerDidPause;
-
--(void)pauseLayerDidUnpause;
-
-@end
+//@interface CCNode(PauseLayerHelper)
+//
+//-(void)pauseLayerDidPause;
+//
+//-(void)pauseLayerDidUnpause;
+//
+//@end
 
 @interface GameOverLayer : CCLayerColor {
     

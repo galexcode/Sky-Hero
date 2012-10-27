@@ -7,16 +7,13 @@
 //
 
 #import "GameScene.h"
-#import "EnemyCache.h"
-#import "ParallaxBackground.h"
-#import "SimpleAudioEngine.h"
-#import "PauseLayer.h"
 
 @interface GameScene (PrivateMethods)
 -(void) preloadParticleEffects:(NSString*)particleFile;
 @end
 
 @implementation GameScene
+@synthesize script;
 @synthesize bulletCache;
 @synthesize healthbar;
 static CGRect screenRect;
@@ -68,8 +65,13 @@ static GameScene* instanceOfGameScene;
         [self addChild:bulletCache z:1 tag:BulletCacheTag];
         
         //初始化Enemy
-        EnemyCache* enemyCache = [EnemyCache node];
+        enemyCache = [EnemyCache node];
 		[self addChild:enemyCache z:0 tag:EnemyCacheTag];
+        
+        
+        //初始化脚本,要在EnemyCache之后
+        Script* s = [Episode1 script];
+        [self resetScript:s];
         
         // To preload the textures, play each effect once off-screen
 		[self preloadParticleEffects:@"explosion.plist"];
@@ -77,12 +79,29 @@ static GameScene* instanceOfGameScene;
         // Preload sound effects
 		[[SimpleAudioEngine sharedEngine] preloadEffect:@"explosion.wav"];
         
-//        [self scheduleUpdate];
+        [self scheduleUpdate];
         
         CCLOG(@"Game scene inited");
         
     }
     return self;
+}
+
+-(void) checkForBulletCollisions
+{
+	Enemy* enemy;
+	CCARRAY_FOREACH([enemyCache.batch children], enemy)
+	{
+		if (enemy.visible)
+		{
+			CGRect bbox = [enemy boundingBox];
+			if ([bulletCache isPlayerBulletCollidingWithRect:bbox])
+			{
+				// This enemy got hit ...
+				[enemy gotHit];
+			}
+		}
+	}
 }
 
 -(void) onEnter
@@ -93,6 +112,70 @@ static GameScene* instanceOfGameScene;
     [super onEnter];
 }
 
+-(void) resetScript:(Script*)theScript
+{
+    //这里一定要用self.script,即调用[self setScript]，会自动retain
+    self.script = theScript;
+    currentAction = 0;
+    scriptActionInterval = 0;
+    //重置
+    int num = [script.scriptActions count];
+    if (scriptParams != NULL) {
+        free(scriptParams);
+    }
+    scriptParams = (ScriptParams*)malloc(num * sizeof(ScriptParams));
+    for (int i=0; i<num; i++) {
+        scriptParams[i].spawnedNum = 0;
+        scriptParams[i].spawningTime = 0;
+    }
+}
+
+-(void)update:(ccTime)delta
+{
+    scriptActionInterval += delta;
+    //script执行完毕，应该结束了
+//    if (currentAction >=[script.scriptActions count]) {
+//        //TODO 更加高级的结束方式
+//        [self unscheduleUpdate];
+//        return;
+//    }
+    //按照顺序与间隔时间依次激活Action
+    if (currentAction == 0 && ((ScriptAction*)[script.scriptActions objectAtIndex:currentAction]).status == InactiveState) {
+        ((ScriptAction*)[script.scriptActions objectAtIndex:currentAction]).status = ActiveState;
+    }
+    if (scriptActionInterval >= ((ScriptAction*)[script.scriptActions objectAtIndex:currentAction]).nextActionInterval) {
+        if (currentAction + 1 < [script.scriptActions count]) {
+            //转到下个action
+            currentAction++;
+            ((ScriptAction*)[script.scriptActions objectAtIndex:currentAction]).status = ActiveState;
+        }
+    }
+    //孵化敌人
+    for (int i=0; i<[script.scriptActions count]; i++) {
+        ScriptAction* action = [script.scriptActions objectAtIndex:i];
+        //只对激活的Action操作
+        if (action.status == ActiveState) {
+            scriptParams[i].spawningTime += delta;
+            //孵化时间达到要求，开始孵化
+            if (scriptParams[i].spawningTime >= action.interval) {
+                //TODO spawn enemy
+//                enemyCache = (EnemyCache*)[self getChildByTag:BulletCacheTag];
+                [enemyCache spawnEnemyOfType:action.type startPosition:action.startPosition moveComponent:action.moveComponent];
+                
+                scriptParams[i].spawnedNum++;
+                //看是不是完成Action了
+                if (scriptParams[i].spawnedNum >= action.num) {
+                    //完成，设置Action状态为已完成
+                    action.status = FinishedState;
+                }else{
+                    //否则孵化时间再次清零，为下一次孵化做准备
+                    scriptParams[i].spawningTime = 0;
+                }
+            }
+        }
+    }
+//    [self checkForBulletCollisions];
+}
 
 -(void) preloadParticleEffects:(NSString*)particleFile
 {
@@ -148,6 +231,9 @@ static GameScene* instanceOfGameScene;
 -(void) dealloc
 {
     CCLOG(@"Game dealloc");
+    if (scriptParams != NULL) {
+        free(scriptParams);
+    }
     [super dealloc];
 }
 +(CGRect)screenRect
@@ -155,4 +241,3 @@ static GameScene* instanceOfGameScene;
     return screenRect;
 }
 @end
-

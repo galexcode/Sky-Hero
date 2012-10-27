@@ -33,13 +33,15 @@ typedef enum
     BasicMoveComponent* moveComponent;
     
     //设计方式
-//    BasicShootComponent* shootComponent;
+    BasicShootComponent* shootComponent;
 }
 +(Enemy*) enemy;
-+(int) getSpawnFrequencyForEnemyType:(EnemyTypes)enemyType;
--(void) initSpawnFrequency;
+//+(int) getSpawnFrequencyForEnemyType:(EnemyTypes)enemyType;
+//-(void) initSpawnFrequency;
 -(id) initWithAnimation;
 -(void) spawn;
 -(void) gotHit;
 -(void) reset;
+@property (nonatomic,copy)BasicMoveComponent* moveComponent;
+@property (nonatomic)CGPoint startPosition;
 @end

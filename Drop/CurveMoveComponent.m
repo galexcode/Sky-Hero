@@ -19,15 +19,24 @@
     if(self = [super init])
     {
         bezierConfig = theBezierConfig;
-        duration = 3;
+        duration = 10;
     }
     return self;
 }
 
--(void)move
+
+-(CCAction*)move
 {
     CCBezierTo *move = [CCBezierTo actionWithDuration:duration bezier:bezierConfig];
-    [self.parent runAction:move];
+    return move;
+}
+
+-(id) copyWithZone:(NSZone *)zone
+{
+    CurveMoveComponent * moveCopy;
+    moveCopy = [super copyWithZone:zone];
+    moveCopy->bezierConfig = bezierConfig;
+    return moveCopy;
 }
 
 @end

@@ -7,15 +7,13 @@
 //
 
 #import "EnemyCache.h"
-#import "Bullet.h"
-#import "GameScene.h"
-#import "EnemyFactory.h"
 
 @interface EnemyCache (PrivateMethods)
 -(void) initEnemies;
 @end
 
 @implementation EnemyCache
+@synthesize batch;
 -(id) init
 {
     if(self = [super init])
@@ -25,7 +23,7 @@
         [self addChild:batch];
         
         [self initEnemies];
-        [self scheduleUpdate];
+//        [self scheduleUpdate];
     }
     return self;
 }
@@ -40,13 +38,13 @@
         int capacity;
         switch (i) {
             case UFOType:
-                capacity = 6;
+                capacity = 10;
                 break;
             case CruiserType:
-                capacity = 3;
+                capacity = 10;
                 break;
             case BossType:
-                capacity = 1;
+                capacity = 10;
                 break;
             default:
                 [NSException exceptionWithName:@"EnemyCache Exception" reason:@"unhandled enemy type" userInfo:nil];
@@ -71,7 +69,7 @@
 	}
 }
 
--(void) spawnEnemyOfType:(EnemyTypes)enemyType
+-(void) spawnEnemyOfType:(EnemyTypes)enemyType startPosition:(CGPoint)theStartPosition  moveComponent:(BasicMoveComponent*)theMoveComponent
 {
 	CCArray* enemiesOfType = [enemies objectAtIndex:enemyType];
 	
@@ -81,8 +79,11 @@
 		// find the first free enemy and respawn it
 		if (enemy.visible == NO)
 		{
-			//CCLOG(@"spawn enemy type %i", enemyType);
+			NSAssert(theMoveComponent != nil, @"Movement is nil when spawn enemy");
+            enemy.startPosition = theStartPosition;
+            enemy.moveComponent = theMoveComponent;
 			[enemy spawn];
+            CCLOG(@"enemy spawned,start position=(%lf,%lf)",enemy.startPosition.x,enemy.startPosition.y);
 			break;
 		}
 	}
@@ -90,40 +91,24 @@
 
 //生产enemy的算法，这里是隔一固定时间就产生
 //TODO 改算法
--(void) update:(ccTime)delta
-{
-	updateCount++;
-    
-	for (int i = EnemyType_MAX - 1; i >= 0; i--)
-	{
-		int spawnFrequency = [Enemy getSpawnFrequencyForEnemyType:i];
-		
-		if (updateCount % spawnFrequency == 0)
-		{
-			[self spawnEnemyOfType:i];
-			break;
-		}
-	}
-    [self checkForBulletCollisions];
-}
+//-(void) update:(ccTime)delta
+//{
+//	updateCount++;
+//    
+//	for (int i = EnemyType_MAX - 1; i >= 0; i--)
+//	{
+//		int spawnFrequency = [Enemy getSpawnFrequencyForEnemyType:i];
+//		
+//		if (updateCount % spawnFrequency == 0)
+//		{
+//			[self spawnEnemyOfType:i];
+//			break;
+//		}
+//	}
+//    [self checkForBulletCollisions];
+//}
 
--(void) checkForBulletCollisions
-{
-	Enemy* enemy;
-	CCARRAY_FOREACH([batch children], enemy)
-	{
-		if (enemy.visible)
-		{
-			BulletCache* bulletCache = [[GameScene sharedGameScene] bulletCache];
-			CGRect bbox = [enemy boundingBox];
-			if ([bulletCache isPlayerBulletCollidingWithRect:bbox])
-			{
-				// This enemy got hit ...
-				[enemy gotHit];
-			}
-		}
-	}
-}
+
 
 -(void) dealloc
 {

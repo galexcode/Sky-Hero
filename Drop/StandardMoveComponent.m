@@ -24,9 +24,17 @@
     return self;
 }
 
--(void)move
+-(CCAction*)move
 {
     CCMoveTo *move = [CCMoveTo actionWithDuration:duration position:endPosition];
-    [self.parent runAction:move];
+    return move;
+}
+
+-(id) copyWithZone:(NSZone *)zone
+{
+    StandardMoveComponent * moveCopy;
+    moveCopy = [super copyWithZone:zone];
+    moveCopy->endPosition = endPosition;
+    return moveCopy;
 }
 @end

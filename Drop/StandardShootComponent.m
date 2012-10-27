@@ -10,8 +10,6 @@
 #import "GameScene.h"
 
 @implementation StandardShootComponent
-@synthesize shootFrequency;
-@synthesize bulletFrameName;
 -(id) init
 {
     if(self = [super init])

@@ -9,13 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface BasicMoveComponent : CCSprite{
+@interface BasicMoveComponent : NSObject <NSCopying>{
     CGPoint velocity;
     CGPoint acceleration;
     ccTime duration;
+    CCAction* action;
 }
 @property (readonly,nonatomic)CGPoint velocity;
 @property (readonly,nonatomic)CGPoint acceleration;
 @property (nonatomic)ccTime duration;
--(void)move;
+@property (nonatomic,readonly)CCAction *action;
+-(CCAction*)move;
+-(id) copyWithCommonVars:(BasicMoveComponent*)moveCopy;
 @end

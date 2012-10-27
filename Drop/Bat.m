@@ -32,19 +32,19 @@
         
         // Create the game logic components
         moveComponent = [StandardMoveComponent instanceWithEndPosition:ccp(0,0)];
-		[self addChild:moveComponent];
+//		[self addChild:moveComponent];
         
         //添加设计与子弹类型
         shootFrequency = 4.0;
 		
-		StandardShootComponent* shootComponent = [StandardShootComponent node];
+		shootComponent = [StandardShootComponent node];
 		shootComponent.shootFrequency = shootFrequency;
 		shootComponent.bulletFrameName = @"bullet1.png";
 		[self addChild:shootComponent];
         
         self.visible = NO;
         
-		[self initSpawnFrequency];
+//		[self initSpawnFrequency];
     }
     return self;
 }

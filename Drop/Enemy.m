@@ -14,8 +14,10 @@
 
 
 @implementation Enemy
+@synthesize moveComponent;
+@synthesize startPosition;
 
-static CCArray* spawnFrequency;
+//static CCArray* spawnFrequency;
 +(Enemy*) enemy
 {
     return [[[self alloc] initWithAnimation] autorelease];
@@ -30,7 +32,7 @@ static CCArray* spawnFrequency;
 
 -(void) update:(ccTime)delta
 {
-    //TODO 判断飞机是否飞出屏幕，需要收回资源
+    //判断飞机是否飞出屏幕，收回资源
     CGSize size = self.textureRect.size;
     CGRect screenRect = [GameScene screenRect];
     float screenWidth = screenRect.size.width;
@@ -71,12 +73,13 @@ static CCArray* spawnFrequency;
 {
     //两步操作：1,visible设为yes;2,开始动move;【先执行子类的spawn再调用父类】
 	// Finally set yourself to be visible
+    
     //开始逐帧监听
     [self scheduleUpdate];
     
 	self.visible = YES;
     
-    [moveComponent move];
+    [self runAction:[moveComponent move]];
 }
 
 -(void) gotHit
@@ -128,32 +131,32 @@ static CCArray* spawnFrequency;
     return nil;
 }
 
--(void) initSpawnFrequency
-{
-    // initialize how frequent the enemies will spawn
-	if (spawnFrequency == nil)
-	{
-		spawnFrequency = [[CCArray alloc] initWithCapacity:EnemyType_MAX];
-		[spawnFrequency insertObject:[NSNumber numberWithInt:80] atIndex:UFOType];
-		[spawnFrequency insertObject:[NSNumber numberWithInt:260] atIndex:CruiserType];
-		[spawnFrequency insertObject:[NSNumber numberWithInt:400] atIndex:BossType];
-		
-		// spawn one enemy immediately
-//		[self spawn];
-	}
-}
+//-(void) initSpawnFrequency
+//{
+//    // initialize how frequent the enemies will spawn
+//	if (spawnFrequency == nil)
+//	{
+//		spawnFrequency = [[CCArray alloc] initWithCapacity:EnemyType_MAX];
+//		[spawnFrequency insertObject:[NSNumber numberWithInt:80] atIndex:UFOType];
+//		[spawnFrequency insertObject:[NSNumber numberWithInt:260] atIndex:CruiserType];
+//		[spawnFrequency insertObject:[NSNumber numberWithInt:400] atIndex:BossType];
+//		
+//		// spawn one enemy immediately
+////		[self spawn];
+//	}
+//}
 
-+(int) getSpawnFrequencyForEnemyType:(EnemyTypes)enemyType
-{
-	NSAssert(enemyType < EnemyType_MAX, @"invalid enemy type");
-	NSNumber* number = [spawnFrequency objectAtIndex:enemyType];
-	return [number intValue];
-}
+//+(int) getSpawnFrequencyForEnemyType:(EnemyTypes)enemyType
+//{
+//	NSAssert(enemyType < EnemyType_MAX, @"invalid enemy type");
+//	NSNumber* number = [spawnFrequency objectAtIndex:enemyType];
+//	return [number intValue];
+//}
 
 -(void) dealloc
 {
-    [spawnFrequency release];
-    spawnFrequency = nil;
+//    [spawnFrequency release];
+//    spawnFrequency = nil;
     
     [super dealloc];
 }
