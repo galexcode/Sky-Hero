@@ -7,10 +7,6 @@
 //
 
 #import "Episode1.h"
-#import "ScriptAction.h"
-#import "CurveMoveComponent.h"
-#import "GameScene.h"
-#import "EnemyCache.h"
 
 @implementation Episode1
 -(id) init
@@ -21,24 +17,31 @@
         //create game script here
         CGRect screenRect = [GameScene screenRect];
         CGPoint startPosition;
+        CGPoint endPosition;
         ccBezierConfig c;
         BasicMoveComponent* move;
         ScriptAction *scriptAction;
-        //.2
+        //.1
         startPosition = ccp(screenRect.size.width,screenRect.size.height);
         c.controlPoint_1 = ccp(0,20);
         c.controlPoint_2 = ccp(10,10);
         c.endPosition = ccp(360,240);
         move = [CurveMoveComponent instanceWithBezierConfig:c];
-        scriptAction = [ScriptAction scriptActionWithEnemyType:UFOType startPosition:startPosition moveComponent:move num:5 interval:0.2 nextActionInterval:0.4 actionType:ColumnType];
+        scriptAction = [ScriptAction scriptActionWithEnemyType:UFOType startPosition:startPosition moveComponent:move num:5 interval:0.3 nextActionInterval:1 actionType:ColumnType];
         [scriptActions addObject:scriptAction];
-        //.1
+        //.2
         startPosition = ccp(0,screenRect.size.height);
         c.controlPoint_1 = ccp(320,20);
         c.controlPoint_2 = ccp(310,10);
         c.endPosition = ccp(-40,240);
         move = [CurveMoveComponent instanceWithBezierConfig:c];
-        scriptAction = [ScriptAction scriptActionWithEnemyType:UFOType startPosition:startPosition moveComponent:move num:5 interval:0.2 nextActionInterval:1 actionType:ColumnType];
+        scriptAction = [ScriptAction scriptActionWithEnemyType:CruiserType startPosition:startPosition moveComponent:move num:5 interval:0.3 nextActionInterval:3 actionType:ColumnType];
+        [scriptActions addObject:scriptAction];
+        //.3
+        startPosition = ccp(screenRect.size.width * 0.3,screenRect.size.height);
+        endPosition = ccp(startPosition.x,-100);
+        move = [StandardMoveComponent instanceWithEndPosition:endPosition];
+        scriptAction = [ScriptAction scriptActionWithEnemyType:BossType startPosition:startPosition moveComponent:move num:2 interval:1 nextActionInterval:1 actionType:ParallelType];
         [scriptActions addObject:scriptAction];
         
     }

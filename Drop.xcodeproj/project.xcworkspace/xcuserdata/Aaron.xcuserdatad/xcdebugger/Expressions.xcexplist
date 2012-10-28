@@ -6,21 +6,30 @@
          contextName = "-[UFO initWithAnimation]:UFO.m">
       </ContextState>
       <ContextState
-         contextName = "-[EnemyCache spawnEnemyOfType:startPosition:moveComponent:]:EnemyCache.m">
+         contextName = "-[GameScene update:]:GameScene.m">
          <PersistentStrings>
             <PersistentString
-               value = "enemy.moveComponent">
+               value = "script">
+            </PersistentString>
+            <PersistentString
+               value = "scriptParams[i]">
+            </PersistentString>
+            <PersistentString
+               value = "scriptParams[i].spawningTime">
+            </PersistentString>
+            <PersistentString
+               value = "scriptActionInterval">
+            </PersistentString>
+            <PersistentString
+               value = "action.interval">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[CCSprite addChild:z:tag:]:CCSprite.m">
+         contextName = "-[Entity isInsideScreenArea]:Entity.m">
          <PersistentStrings>
             <PersistentString
-               value = "textureAtlas_.texture.name">
-            </PersistentString>
-            <PersistentString
-               value = "child.texture.name">
+               value = "[GameScene screenRect]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -29,6 +38,17 @@
          <PersistentStrings>
             <PersistentString
                value = "moveComponent.texture.name">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[Bullet update:]:Bullet.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.position">
+            </PersistentString>
+            <PersistentString
+               value = "self.visible">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -50,10 +70,10 @@
                value = "child.tag">
             </PersistentString>
             <PersistentString
-               value = "self">
+               value = "child.zOrder">
             </PersistentString>
             <PersistentString
-               value = "child.zOrder">
+               value = "self">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -109,30 +129,21 @@
          contextName = "-[Episode1 init]:Episode1.m">
       </ContextState>
       <ContextState
-         contextName = "-[GameScene update:]:GameScene.m">
+         contextName = "-[EnemyCache spawnEnemyOfType:startPosition:moveComponent:]:EnemyCache.m">
          <PersistentStrings>
             <PersistentString
-               value = "script">
-            </PersistentString>
-            <PersistentString
-               value = "scriptParams[i]">
-            </PersistentString>
-            <PersistentString
-               value = "scriptParams[i].spawningTime">
-            </PersistentString>
-            <PersistentString
-               value = "scriptActionInterval">
-            </PersistentString>
-            <PersistentString
-               value = "action.interval">
+               value = "enemy.moveComponent">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[Entity isInsideScreenArea]:Entity.m">
+         contextName = "-[CCSprite addChild:z:tag:]:CCSprite.m">
          <PersistentStrings>
             <PersistentString
-               value = "[GameScene screenRect]">
+               value = "textureAtlas_.texture.name">
+            </PersistentString>
+            <PersistentString
+               value = "child.texture.name">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

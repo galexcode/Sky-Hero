@@ -10,14 +10,6 @@
 #import "GameScene.h"
 
 @implementation StandardShootComponent
--(id) init
-{
-    if(self = [super init])
-    {
-        [self scheduleUpdate];
-    }
-    return self;
-}
 
 -(void) dealloc
 {
@@ -26,19 +18,9 @@
     [super dealloc];
 }
 
--(void) update:(ccTime)delta
+-(void)shoot
 {
-    if(self.parent.visible)
-    {
-        updateCount += delta;
-        if(updateCount >= shootFrequency)
-        {
-            updateCount = 0;
-            
-            GameScene* game = [GameScene sharedGameScene];
-            CGPoint startPos = ccpSub(self.parent.position, ccp(0, self.parent.contentSize.width));
-            [game.bulletCache shootBulletAt:startPos velocity:ccp(0,-200) frameName:bulletFrameName isPlayerBullet:NO];
-        }
-    }
+    GameScene* game = [GameScene sharedGameScene];
+    [game.bulletCache shootBulletAt:startPosition velocity:ccp(0,-200) frameName:bulletFrameName isPlayerBullet:NO];
 }
 @end

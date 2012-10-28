@@ -21,6 +21,7 @@ typedef enum
 @interface Enemy : Entity {
     EnemyTypes type;
     float shootFrequency;
+    float shootingTime;
     
     BOOL isOnScreen;
     

@@ -174,7 +174,7 @@ static GameScene* instanceOfGameScene;
             }
         }
     }
-//    [self checkForBulletCollisions];
+    [self checkForBulletCollisions];
 }
 
 -(void) preloadParticleEffects:(NSString*)particleFile

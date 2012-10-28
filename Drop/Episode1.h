@@ -6,9 +6,10 @@
 //
 //
 
-#import <Foundation/Foundation.h>
 #import "Script.h"
 
+#import "GameScene.h"
+#import "EnemyCache.h"
 @interface Episode1 : Script
 
 @end

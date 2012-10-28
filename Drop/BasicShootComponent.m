@@ -10,7 +10,24 @@
 
 
 @implementation BasicShootComponent
+@synthesize startPosition;
++(id)instanceWithStartPosition:(CGPoint)theStartPosition bulletFrameName:(NSString*)theBulletFrameName
+{
+    return [[self alloc]initWithStartPosition:theStartPosition bulletFrameName:theBulletFrameName];
+}
 
-@synthesize bulletFrameName;
-@synthesize shootFrequency;
+-(id) initWithStartPosition:(CGPoint)theStartPosition bulletFrameName:(NSString*)theBulletFrameName
+{
+    if(self = [super init])
+    {
+        startPosition = theStartPosition;
+        bulletFrameName = theBulletFrameName;
+    }
+    return self;
+}
+
+-(void)shoot
+{
+    
+}
 @end

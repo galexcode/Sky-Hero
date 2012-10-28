@@ -24,17 +24,10 @@
         initialHitPoints = 40;
         hitPoints = initialHitPoints;
         
-        // Create the game logic components
-        moveComponent = [StandardMoveComponent instanceWithEndPosition:ccp(0,0)];
-//		[self addChild:moveComponent];
-        
         //添加设计与子弹类型
         shootFrequency = 1.0;
 		
-		shootComponent = [StandardShootComponent node];
-		shootComponent.shootFrequency = shootFrequency;
-		shootComponent.bulletFrameName = @"bullet1.png";
-		[self addChild:shootComponent];
+		shootComponent = [StandardShootComponent instanceWithStartPosition:self.position bulletFrameName:@"bullet1.png"];
         
         self.visible = NO;
         
@@ -43,16 +36,4 @@
     return self;
 }
 
--(void) spawn
-{
-    CGRect screenRect = [GameScene screenRect];
-	CGSize spriteSize = [self contentSize];
-	float xPos = CCRANDOM_0_1() * (screenRect.size.width - spriteSize.width) + spriteSize.width * 0.5f;
-	float yPos = screenRect.size.height + spriteSize.height * 0.5f;
-    
-	self.position = CGPointMake(xPos, yPos);
-    
-    [super spawn];
-    
-}
 @end

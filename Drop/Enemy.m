@@ -48,7 +48,7 @@
         //不在屏幕上
         isOnScreen = NO;
         //stop actions to prevent wrong moves
-        [self stopAllActions];
+//        [self stopAllActions];
         //停止监听
         [self unscheduleUpdate];
         return;
@@ -63,6 +63,14 @@
         self.rotation = degree + 180;
         lastPosition = nowPosition;
     }
+    
+    //飞机射击
+    shootingTime += delta;
+    if (shootingTime >= shootFrequency) {
+        shootComponent.startPosition = self.position;
+        shootingTime = 0;
+        [shootComponent shoot];
+    }
 }
 -(void) reset
 {
@@ -73,6 +81,9 @@
 {
     //两步操作：1,visible设为yes;2,开始动move;【先执行子类的spawn再调用父类】
 	// Finally set yourself to be visible
+    self.position = startPosition;
+    
+    shootComponent.startPosition = startPosition;
     
     //开始逐帧监听
     [self scheduleUpdate];
@@ -89,7 +100,7 @@
     //不在屏幕上
     isOnScreen = NO;
     //stop actions to prevent wrong moves
-    [self stopAllActions];
+//    [self stopAllActions];
     //停止监听
     [self unscheduleUpdate];
     
@@ -157,7 +168,7 @@
 {
 //    [spawnFrequency release];
 //    spawnFrequency = nil;
-    
+    [moveComponent release];
     [super dealloc];
 }
 @end
