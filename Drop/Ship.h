@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Entity.h"
+#import "BasicShootComponent.h"
 
 @interface Ship : Entity
 {
@@ -15,6 +16,8 @@
     //游戏开始的时长
     ccTime totalTime;
     ccTime nextShotTime;
+    
+    BasicShootComponent* shootComponent;
 }
 +(Ship*)ship;
 +(Ship*) sharedShip;

@@ -11,6 +11,7 @@
 #import "GameScene.h"
 #import "SimpleAudioEngine.h"
 #import "GameOverLayer.h"
+#import "TribulletsShootComponent.h"
 
 @interface Ship(PrivateMethods)
 -(id) initWithShipImage;
@@ -30,17 +31,13 @@ static Ship* shipInstance;
 }
 -(id) initWithShipImage
 {
-    if(self = [super initWithSpriteFrameName:@"plane.png"])
+    if(self = [super initWithSpriteFrameName:@"thunder.png"])
     {
         shipInstance = self;
         
         [self reset];
-        //表现形态
-        CCAnimation* anim = [CCAnimation animationWithFrame:@"plane" frameCount:2 delay:0.08f];
-        CCAnimate* animate = [CCAnimate actionWithAnimation:anim];
-        CCRepeatForever *repeat = [CCRepeatForever actionWithAction:animate];
         
-        [self runAction:repeat];
+        shootComponent = [TribulletsShootComponent instanceWithStartPosition:self.position bulletFrameName:@"bullet0.png"];
         [self scheduleUpdate];
     }
     return self;
@@ -76,9 +73,11 @@ static Ship* shipInstance;
     if(totalTime > nextShotTime)
     {
         nextShotTime = totalTime + 0.4f;
-        CGPoint shotPos = ccp(self.position.x, self.position.y);
-        CGPoint velocity = ccp(0,200);
-        [[GameScene sharedGameScene].bulletCache shootBulletAt:shotPos velocity:velocity frameName:@"bullet.png" isPlayerBullet:YES];
+        shootComponent.startPosition = self.position;
+        [shootComponent shoot];
+//        CGPoint shotPos = ccp(self.position.x, self.position.y);
+//        CGPoint velocity = ccp(0,200);
+//        [[GameScene sharedGameScene].bulletCache shootBulletAt:shotPos velocity:velocity frameName:@"bullet.png" isPlayerBullet:YES];
     }
     
     [self checkForBulletCollisions];
@@ -136,5 +135,11 @@ static Ship* shipInstance;
         [GameOverLayer layerWithDelegate:[GameScene sharedGameScene]];
         
     }
+}
+
+-(void)dealloc
+{
+    [shootComponent release];
+    [super dealloc];
 }
 @end

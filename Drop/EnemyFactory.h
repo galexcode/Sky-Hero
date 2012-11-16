@@ -6,7 +6,6 @@
 //
 //
 
-#import <Foundation/Foundation.h>
 #import "Enemy.h"
 @interface EnemyFactory : NSObject
 

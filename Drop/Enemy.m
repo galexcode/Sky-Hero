@@ -9,9 +9,6 @@
 #import "Enemy.h"
 #import "GameScene.h"
 #import "SimpleAudioEngine.h"
-#import "UFO.h"
-
-
 
 @implementation Enemy
 @synthesize moveComponent;
@@ -95,18 +92,30 @@
 
 -(void) gotHit
 {
-    //    CCLOG(@"enemy got hit!");
-	self.visible = NO;
-    //不在屏幕上
-    isOnScreen = NO;
-    //stop actions to prevent wrong moves
-//    [self stopAllActions];
-    //停止监听
-    [self unscheduleUpdate];
-    
-    // Play a particle effect when the enemy was destroyed
-    CCParticleSystem* system;
-    system = [CCParticleSystemQuad particleWithFile:@"explosion.plist"];
+    hitPoints-=10;
+    if (hitPoints <= 0) {
+        //destroied
+        hitPoints = initialHitPoints;
+        self.visible = NO;
+        //不在屏幕上
+        isOnScreen = NO;
+        
+        //停止监听
+        [self unscheduleUpdate];
+        
+        //sound effect
+        [[SimpleAudioEngine sharedEngine] playEffect:@"explosion.wav" pitch:1.0f pan:0.0f gain:1.0f];
+        
+        // Play a particle effect when the enemy was destroyed
+        CCParticleSystem* system;
+        system = [CCParticleSystemQuad particleWithFile:@"explosion.plist"];
+        // Set some parameters that can't be set in Particle Designer
+        system.positionType = kCCPositionTypeFree;
+        system.autoRemoveOnFinish = YES;
+        system.position = self.position;
+        
+        [[GameScene sharedGameScene] addChild:system];
+    }
     /*
      From stackoverflow.com:
      Effect: the sound file in your bundle you want to play.
@@ -121,19 +130,11 @@
      
      [edit] Note on Panning: If you feed in a stereo (2-channel) audio file and attempt to pan you will not hear any affect. Use a 1-channel file (mono) to enable panning.
      */
-    [[SimpleAudioEngine sharedEngine] playEffect:@"explosion.wav" pitch:1.0f pan:0.0f gain:1.0f];
-    
-    
-    // Set some parameters that can't be set in Particle Designer
-    system.positionType = kCCPositionTypeFree;
-    system.autoRemoveOnFinish = YES;
-    system.position = self.position;
     
     // Add the particle effect to the GameScene, for these reasons:
     // - self is a sprite added to a spritebatch and will only allow CCSprite nodes (it crashes if you try)
     // - self is now invisible which might affect rendering of the particle effect
     // - since the particle effects are short lived, there is no harm done by adding them directly to the GameScene
-    [[GameScene sharedGameScene] addChild:system];
 }
 
 //leave to children
@@ -142,33 +143,12 @@
     return nil;
 }
 
-//-(void) initSpawnFrequency
-//{
-//    // initialize how frequent the enemies will spawn
-//	if (spawnFrequency == nil)
-//	{
-//		spawnFrequency = [[CCArray alloc] initWithCapacity:EnemyType_MAX];
-//		[spawnFrequency insertObject:[NSNumber numberWithInt:80] atIndex:UFOType];
-//		[spawnFrequency insertObject:[NSNumber numberWithInt:260] atIndex:CruiserType];
-//		[spawnFrequency insertObject:[NSNumber numberWithInt:400] atIndex:BossType];
-//		
-//		// spawn one enemy immediately
-////		[self spawn];
-//	}
-//}
-
-//+(int) getSpawnFrequencyForEnemyType:(EnemyTypes)enemyType
-//{
-//	NSAssert(enemyType < EnemyType_MAX, @"invalid enemy type");
-//	NSNumber* number = [spawnFrequency objectAtIndex:enemyType];
-//	return [number intValue];
-//}
-
 -(void) dealloc
 {
 //    [spawnFrequency release];
 //    spawnFrequency = nil;
     [moveComponent release];
+    [shootComponent release];
     [super dealloc];
 }
 @end

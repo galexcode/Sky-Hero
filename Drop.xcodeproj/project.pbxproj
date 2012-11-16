@@ -37,13 +37,21 @@
 		93D324701635793A002F57A3 /* BasicShootComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D3246F1635793A002F57A3 /* BasicShootComponent.m */; };
 		93D3F8BD1629616E00F2D8EC /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D3F8BC1629616E00F2D8EC /* Bullet.m */; };
 		93DCFEFF16368AE700C1A8BE /* HoverMoveComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DCFEFE16368AE600C1A8BE /* HoverMoveComponent.m */; };
+		93E166CD163D01FD001413BD /* TribulletsShootComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E166CC163D01FD001413BD /* TribulletsShootComponent.m */; };
+		93E5479E16421BFB004F139A /* BattleShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E5479D16421BFB004F139A /* BattleShip.m */; };
+		93E547A4164220A7004F139A /* game-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93E547A0164220A7004F139A /* game-hd.plist */; };
+		93E547A5164220A7004F139A /* game-hd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 93E547A1164220A7004F139A /* game-hd.pvr.ccz */; };
+		93E547A6164220A7004F139A /* game.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93E547A2164220A7004F139A /* game.plist */; };
+		93E547A7164220A7004F139A /* game.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 93E547A3164220A7004F139A /* game.pvr.ccz */; };
+		93E547AC164220B3004F139A /* plane-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93E547A8164220B3004F139A /* plane-hd.plist */; };
+		93E547AD164220B3004F139A /* plane-hd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 93E547A9164220B3004F139A /* plane-hd.pvr.ccz */; };
+		93E547AE164220B3004F139A /* plane.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93E547AA164220B3004F139A /* plane.plist */; };
+		93E547AF164220B3004F139A /* plane.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 93E547AB164220B3004F139A /* plane.pvr.ccz */; };
+		93E547B216422346004F139A /* Striker.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E547B116422346004F139A /* Striker.m */; };
+		93E547B516422C17004F139A /* VelocityShootComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E547B416422C17004F139A /* VelocityShootComponent.m */; };
 		93E9A8CD162BBB230063FB0E /* ParallaxBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E9A8CC162BBB230063FB0E /* ParallaxBackground.m */; };
 		93EA850A162A5AF4002D8CE6 /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EA8509162A5AF4002D8CE6 /* Entity.m */; };
 		93F8FB44163421600014A521 /* OptionsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8FB43163421600014A521 /* OptionsScene.m */; };
-		93F8FB4A16343B650014A521 /* resource-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93F8FB4616343B650014A521 /* resource-hd.plist */; };
-		93F8FB4B16343B650014A521 /* resource-hd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 93F8FB4716343B650014A521 /* resource-hd.pvr.ccz */; };
-		93F8FB4C16343B650014A521 /* resource.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93F8FB4816343B650014A521 /* resource.plist */; };
-		93F8FB4D16343B650014A521 /* resource.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 93F8FB4916343B650014A521 /* resource.pvr.ccz */; };
 		93F8FB5316344CC30014A521 /* PauseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8FB5216344CC30014A521 /* PauseLayer.m */; };
 		93FE9B2A16171A01009345A6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FE9B2916171A01009345A6 /* QuartzCore.framework */; };
 		93FE9B2C16171A01009345A6 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FE9B2B16171A01009345A6 /* OpenGLES.framework */; };
@@ -227,16 +235,28 @@
 		93D3F8BC1629616E00F2D8EC /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bullet.m; sourceTree = "<group>"; };
 		93DCFEFD16368AE600C1A8BE /* HoverMoveComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoverMoveComponent.h; sourceTree = "<group>"; };
 		93DCFEFE16368AE600C1A8BE /* HoverMoveComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoverMoveComponent.m; sourceTree = "<group>"; };
+		93E166CB163D01FC001413BD /* TribulletsShootComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TribulletsShootComponent.h; sourceTree = "<group>"; };
+		93E166CC163D01FD001413BD /* TribulletsShootComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TribulletsShootComponent.m; sourceTree = "<group>"; };
+		93E5479C16421BFB004F139A /* BattleShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleShip.h; sourceTree = "<group>"; };
+		93E5479D16421BFB004F139A /* BattleShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BattleShip.m; sourceTree = "<group>"; };
+		93E547A0164220A7004F139A /* game-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "game-hd.plist"; path = "Resources/game-hd.plist"; sourceTree = "<group>"; };
+		93E547A1164220A7004F139A /* game-hd.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = "game-hd.pvr.ccz"; path = "Resources/game-hd.pvr.ccz"; sourceTree = "<group>"; };
+		93E547A2164220A7004F139A /* game.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = game.plist; path = Resources/game.plist; sourceTree = "<group>"; };
+		93E547A3164220A7004F139A /* game.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = game.pvr.ccz; path = Resources/game.pvr.ccz; sourceTree = "<group>"; };
+		93E547A8164220B3004F139A /* plane-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "plane-hd.plist"; path = "Resources/plane-hd.plist"; sourceTree = "<group>"; };
+		93E547A9164220B3004F139A /* plane-hd.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = "plane-hd.pvr.ccz"; path = "Resources/plane-hd.pvr.ccz"; sourceTree = "<group>"; };
+		93E547AA164220B3004F139A /* plane.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = plane.plist; path = Resources/plane.plist; sourceTree = "<group>"; };
+		93E547AB164220B3004F139A /* plane.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = plane.pvr.ccz; path = Resources/plane.pvr.ccz; sourceTree = "<group>"; };
+		93E547B016422345004F139A /* Striker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Striker.h; sourceTree = "<group>"; };
+		93E547B116422346004F139A /* Striker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Striker.m; sourceTree = "<group>"; };
+		93E547B316422C16004F139A /* VelocityShootComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityShootComponent.h; sourceTree = "<group>"; };
+		93E547B416422C17004F139A /* VelocityShootComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelocityShootComponent.m; sourceTree = "<group>"; };
 		93E9A8CB162BBB230063FB0E /* ParallaxBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParallaxBackground.h; sourceTree = "<group>"; };
 		93E9A8CC162BBB230063FB0E /* ParallaxBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParallaxBackground.m; sourceTree = "<group>"; };
 		93EA8508162A5AF4002D8CE6 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		93EA8509162A5AF4002D8CE6 /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
 		93F8FB42163421600014A521 /* OptionsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsScene.h; sourceTree = "<group>"; };
 		93F8FB43163421600014A521 /* OptionsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsScene.m; sourceTree = "<group>"; };
-		93F8FB4616343B650014A521 /* resource-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "resource-hd.plist"; path = "Resources/resource-hd.plist"; sourceTree = "<group>"; };
-		93F8FB4716343B650014A521 /* resource-hd.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = "resource-hd.pvr.ccz"; path = "Resources/resource-hd.pvr.ccz"; sourceTree = "<group>"; };
-		93F8FB4816343B650014A521 /* resource.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = resource.plist; path = Resources/resource.plist; sourceTree = "<group>"; };
-		93F8FB4916343B650014A521 /* resource.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = resource.pvr.ccz; path = Resources/resource.pvr.ccz; sourceTree = "<group>"; };
 		93F8FB5116344CC20014A521 /* PauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseLayer.h; sourceTree = "<group>"; };
 		93F8FB5216344CC30014A521 /* PauseLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PauseLayer.m; sourceTree = "<group>"; };
 		93FE9B2516171A01009345A6 /* Drop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drop.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -550,19 +570,35 @@
 			name = GameScripts;
 			sourceTree = "<group>";
 		};
-		93C5D97C162652D900290023 /* GameObjects */ = {
+		93C5C7DB165657B000F80CD5 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				93C6E9F5162FCEE7001FA12B /* Enemies */,
-				9329FC8B162ADB4D00563DC9 /* Components */,
 				93C5D97E1626535900290023 /* Ship.h */,
 				93C5D97F1626535900290023 /* Ship.m */,
+				93EA8508162A5AF4002D8CE6 /* Entity.h */,
+				93EA8509162A5AF4002D8CE6 /* Entity.m */,
+				93C6E9F5162FCEE7001FA12B /* Enemies */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		93C5C7DD165657EF00F80CD5 /* Bullets */ = {
+			isa = PBXGroup;
+			children = (
 				9327473A16284E9A0006E685 /* BulletCache.h */,
 				9327473B16284E9A0006E685 /* BulletCache.m */,
 				93D3F8BB1629616E00F2D8EC /* Bullet.h */,
 				93D3F8BC1629616E00F2D8EC /* Bullet.m */,
-				93EA8508162A5AF4002D8CE6 /* Entity.h */,
-				93EA8509162A5AF4002D8CE6 /* Entity.m */,
+			);
+			name = Bullets;
+			sourceTree = "<group>";
+		};
+		93C5D97C162652D900290023 /* GameObjects */ = {
+			isa = PBXGroup;
+			children = (
+				93C5C7DD165657EF00F80CD5 /* Bullets */,
+				93C5C7DB165657B000F80CD5 /* Entities */,
+				9329FC8B162ADB4D00563DC9 /* Components */,
 			);
 			name = GameObjects;
 			sourceTree = "<group>";
@@ -587,10 +623,14 @@
 				93C6E9F8162FCF13001FA12B /* UFO.m */,
 				93C6E9FA162FD64C001FA12B /* Fighter.h */,
 				93C6E9FB162FD64C001FA12B /* Fighter.m */,
+				93E547B016422345004F139A /* Striker.h */,
+				93E547B116422346004F139A /* Striker.m */,
 				93C6E9FD162FDAC4001FA12B /* EnemyFactory.h */,
 				93C6E9FE162FDAC4001FA12B /* EnemyFactory.m */,
 				93C6EA00162FE056001FA12B /* Bat.h */,
 				93C6EA01162FE057001FA12B /* Bat.m */,
+				93E5479C16421BFB004F139A /* BattleShip.h */,
+				93E5479D16421BFB004F139A /* BattleShip.m */,
 			);
 			name = Enemies;
 			sourceTree = "<group>";
@@ -602,6 +642,10 @@
 				9329FC8D162ADB7000563DC9 /* StandardShootComponent.m */,
 				93D3246E1635793A002F57A3 /* BasicShootComponent.h */,
 				93D3246F1635793A002F57A3 /* BasicShootComponent.m */,
+				93E166CB163D01FC001413BD /* TribulletsShootComponent.h */,
+				93E166CC163D01FD001413BD /* TribulletsShootComponent.m */,
+				93E547B316422C16004F139A /* VelocityShootComponent.h */,
+				93E547B416422C17004F139A /* VelocityShootComponent.m */,
 			);
 			name = ShootComponent;
 			sourceTree = "<group>";
@@ -699,10 +743,14 @@
 		93FE9B3C16171A01009345A6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				93F8FB4616343B650014A521 /* resource-hd.plist */,
-				93F8FB4716343B650014A521 /* resource-hd.pvr.ccz */,
-				93F8FB4816343B650014A521 /* resource.plist */,
-				93F8FB4916343B650014A521 /* resource.pvr.ccz */,
+				93E547A8164220B3004F139A /* plane-hd.plist */,
+				93E547A9164220B3004F139A /* plane-hd.pvr.ccz */,
+				93E547AA164220B3004F139A /* plane.plist */,
+				93E547AB164220B3004F139A /* plane.pvr.ccz */,
+				93E547A0164220A7004F139A /* game-hd.plist */,
+				93E547A1164220A7004F139A /* game-hd.pvr.ccz */,
+				93E547A2164220A7004F139A /* game.plist */,
+				93E547A3164220A7004F139A /* game.pvr.ccz */,
 				937F6720162F04C200D52469 /* fx-explosion.plist */,
 				937F671E162F040600D52469 /* explo1.wav */,
 				937F671C162F029000D52469 /* explosion.wav */,
@@ -1136,10 +1184,14 @@
 				93559AA71632E11E00D46A72 /* Default.png in Resources */,
 				93559AA91632E12600D46A72 /* Default@2x.png in Resources */,
 				93559AAB1632E20800D46A72 /* Default-568h@2x.png in Resources */,
-				93F8FB4A16343B650014A521 /* resource-hd.plist in Resources */,
-				93F8FB4B16343B650014A521 /* resource-hd.pvr.ccz in Resources */,
-				93F8FB4C16343B650014A521 /* resource.plist in Resources */,
-				93F8FB4D16343B650014A521 /* resource.pvr.ccz in Resources */,
+				93E547A4164220A7004F139A /* game-hd.plist in Resources */,
+				93E547A5164220A7004F139A /* game-hd.pvr.ccz in Resources */,
+				93E547A6164220A7004F139A /* game.plist in Resources */,
+				93E547A7164220A7004F139A /* game.pvr.ccz in Resources */,
+				93E547AC164220B3004F139A /* plane-hd.plist in Resources */,
+				93E547AD164220B3004F139A /* plane-hd.pvr.ccz in Resources */,
+				93E547AE164220B3004F139A /* plane.plist in Resources */,
+				93E547AF164220B3004F139A /* plane.pvr.ccz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1298,6 +1350,10 @@
 				9334C2411637DC510068EE25 /* ScriptAction.m in Sources */,
 				9334C2441637E06C0068EE25 /* ScriptFactory.m in Sources */,
 				9334C2471637E22F0068EE25 /* Episode1.m in Sources */,
+				93E166CD163D01FD001413BD /* TribulletsShootComponent.m in Sources */,
+				93E5479E16421BFB004F139A /* BattleShip.m in Sources */,
+				93E547B216422346004F139A /* Striker.m in Sources */,
+				93E547B516422C17004F139A /* VelocityShootComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,37 +7,25 @@
 //
 
 #import "Bat.h"
-#import "CCAnimation+Helper.h"
-#import "StandardMoveComponent.h"
 #import "StandardShootComponent.h"
-#import "GameScene.h"
 
 
 @implementation Bat
 
 -(id) initWithAnimation
 {
-    if(self = [super initWithSpriteFrameName:@"enemy3_0.png"])
+    if(self = [super initWithSpriteFrameName:@"bat.png"])
     {
-        //        shipInstance = self;
-        
         initialHitPoints = 50;
         hitPoints = initialHitPoints;
-        //表现形态
-        CCAnimation* anim = [CCAnimation animationWithFrame:@"enemy3_" frameCount:2 delay:0.3f];
-        CCAnimate* animate = [CCAnimate actionWithAnimation:anim];
-        CCRepeatForever *repeat = [CCRepeatForever actionWithAction:animate];
-        
-        [self runAction:repeat];
         
         //添加设计与子弹类型
         shootFrequency = 4.0;
 		
-		shootComponent = [StandardShootComponent instanceWithStartPosition:self.position bulletFrameName:@"bullet1.png"];
+		shootComponent = [StandardShootComponent instanceWithStartPosition:self.position bulletFrameName:@"bullet2.png"];
         
         self.visible = NO;
         
-//		[self initSpawnFrequency];
     }
     return self;
 }

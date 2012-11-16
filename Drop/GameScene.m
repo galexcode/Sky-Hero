@@ -45,7 +45,8 @@ static GameScene* instanceOfGameScene;
         
         // Load all of the game's artwork up front.
 		CCSpriteFrameCache* frameCache = [CCSpriteFrameCache sharedSpriteFrameCache];
-		[frameCache addSpriteFramesWithFile:@"resource.plist"];
+		[frameCache addSpriteFramesWithFile:@"plane.plist"];
+        [frameCache addSpriteFramesWithFile:@"game.plist"];
                 
         ParallaxBackground* background = [ParallaxBackground node];
 		[self addChild:background z:-1];
@@ -147,6 +148,7 @@ static GameScene* instanceOfGameScene;
         if (currentAction + 1 < [script.scriptActions count]) {
             //转到下个action
             currentAction++;
+            scriptActionInterval = 0;
             ((ScriptAction*)[script.scriptActions objectAtIndex:currentAction]).status = ActiveState;
         }
     }

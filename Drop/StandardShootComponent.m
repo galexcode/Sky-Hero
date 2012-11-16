@@ -11,13 +11,6 @@
 
 @implementation StandardShootComponent
 
--(void) dealloc
-{
-    //需要手动释放bulletFrameName的计数值
-    [bulletFrameName release];
-    [super dealloc];
-}
-
 -(void)shoot
 {
     GameScene* game = [GameScene sharedGameScene];

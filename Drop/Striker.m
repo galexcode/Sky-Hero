@@ -1,20 +1,19 @@
 //
-//  Fighter.m
+//  Striker.m
 //  Drop
 //
-//  Created by Aaron on 12-10-18.
+//  Created by Aaron on 12-11-1.
 //  Copyright 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import "Fighter.h"
+#import "Striker.h"
 #import "StandardShootComponent.h"
 
 
-@implementation Fighter
-
+@implementation Striker
 -(id) initWithAnimation
 {
-    if(self = [super initWithSpriteFrameName:@"fighter.png"])
+    if(self = [super initWithSpriteFrameName:@"striker.png"])
     {
         initialHitPoints = 40;
         hitPoints = initialHitPoints;
@@ -28,5 +27,4 @@
     }
     return self;
 }
-
 @end

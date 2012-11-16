@@ -12,6 +12,7 @@
 @interface Bullet : CCSprite {
     CGPoint velocity;
     bool isPlayerBullet;
+    CGPoint lastPosition;
 }
 @property (readwrite,nonatomic) CGPoint velocity;
 @property (readwrite,nonatomic) bool isPlayerBullet;

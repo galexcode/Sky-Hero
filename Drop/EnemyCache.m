@@ -18,7 +18,7 @@
 {
     if(self = [super init])
     {
-        CCSpriteFrame* frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy1.png"];
+        CCSpriteFrame* frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"fighter.png"];
         batch = [CCSpriteBatchNode batchNodeWithTexture:frame.texture];
         [self addChild:batch];
         
@@ -38,14 +38,18 @@
         int capacity;
         switch (i) {
             case UFOType:
-                capacity = 10;
+                capacity = 4;
                 break;
-            case CruiserType:
-                capacity = 10;
+            case BatType:
+                capacity = 4;
                 break;
-            case BossType:
-                capacity = 10;
+            case BattleshipType:
+                capacity = 4;
                 break;
+            case FighterType:
+                capacity = 20;
+            case StrikerType:
+                capacity = 20;
             default:
                 [NSException exceptionWithName:@"EnemyCache Exception" reason:@"unhandled enemy type" userInfo:nil];
                 break;

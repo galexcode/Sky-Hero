@@ -17,7 +17,7 @@
 {
     if(self = [super init])
     {
-        CCSpriteFrame* bulletFrame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"bullet.png"];
+        CCSpriteFrame* bulletFrame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"bullet0.png"];
         
         batch = [CCSpriteBatchNode batchNodeWithTexture:bulletFrame.texture];
         

@@ -10,6 +10,8 @@
 #import "UFO.h"
 #import "Fighter.h"
 #import "Bat.h"
+#import "BattleShip.h"
+#import "Striker.h"
 
 @implementation EnemyFactory
 +(Enemy*) enemyWithType:(EnemyTypes)enemyType
@@ -18,11 +20,17 @@
         case UFOType:
             return [UFO enemy];
             break;
-        case CruiserType:
+        case BatType:
+            return [Bat enemy];
+            break;
+        case BattleshipType:
+            return [BattleShip enemy];
+            break;
+        case FighterType:
             return [Fighter enemy];
             break;
-        case BossType:
-            return [Bat enemy];
+        case StrikerType:
+            return [Striker enemy];
             break;
         default:
             return nil;

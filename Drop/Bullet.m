@@ -22,7 +22,7 @@
 -(id) initWithBulletImage
 {
     // Uses the Texture Atlas now.
-	if ((self = [super initWithSpriteFrameName:@"bullet.png"]))
+	if ((self = [super initWithSpriteFrameName:@"bullet0.png"]))
 	{
 	}
 	
@@ -43,6 +43,14 @@
 -(void) update:(ccTime)delta
 {
     self.position = ccpAdd(self.position, ccpMult(self.velocity, delta));
+    
+    CGPoint nowPosition = self.position;
+    
+    if (nowPosition.x != lastPosition.x || nowPosition.y != lastPosition.y) {
+        float degree = CC_RADIANS_TO_DEGREES(atan2f(nowPosition.x - lastPosition.x,nowPosition.y - lastPosition.y));
+        self.rotation = degree + 180;
+        lastPosition = nowPosition;
+    }
     
     if(CGRectContainsRect([self boundingBox], [GameScene screenRect]))
     {

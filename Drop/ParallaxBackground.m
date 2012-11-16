@@ -12,7 +12,7 @@
 		
 		// Get the game's texture atlas texture by adding it. Since it's added already it will simply return 
 		// the CCTexture2D associated with the texture atlas.
-		CCTexture2D* gameArtTexture = [[CCTextureCache sharedTextureCache] addImage:@"resource.pvr.ccz"];
+		CCTexture2D* gameArtTexture = [[CCTextureCache sharedTextureCache] addImage:@"game.pvr.ccz"];
 		
 		// Create the background spritebatch
 		spriteBatch = [CCSpriteBatchNode batchNodeWithTexture:gameArtTexture];

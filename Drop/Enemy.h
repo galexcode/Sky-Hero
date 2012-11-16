@@ -14,8 +14,10 @@
 typedef enum
 {
     UFOType = 0,
-    CruiserType,
-    BossType,
+    FighterType,
+    StrikerType,
+    BatType,
+    BattleshipType,
     EnemyType_MAX,
 }EnemyTypes;
 @interface Enemy : Entity {
@@ -37,12 +39,11 @@ typedef enum
     BasicShootComponent* shootComponent;
 }
 +(Enemy*) enemy;
-//+(int) getSpawnFrequencyForEnemyType:(EnemyTypes)enemyType;
-//-(void) initSpawnFrequency;
 -(id) initWithAnimation;
 -(void) spawn;
 -(void) gotHit;
 -(void) reset;
+-(void) update:(ccTime)delta;
 @property (nonatomic,copy)BasicMoveComponent* moveComponent;
 @property (nonatomic)CGPoint startPosition;
 @end
