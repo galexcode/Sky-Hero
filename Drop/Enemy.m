@@ -13,6 +13,7 @@
 @implementation Enemy
 @synthesize moveComponent;
 @synthesize startPosition;
+@synthesize score;
 
 //static CCArray* spawnFrequency;
 +(Enemy*) enemy
@@ -114,7 +115,11 @@
         system.autoRemoveOnFinish = YES;
         system.position = self.position;
         
-        [[GameScene sharedGameScene] addChild:system];
+        GameScene *scene = [GameScene sharedGameScene];
+        
+        [scene updateScore:score];
+        
+        [scene addChild:system];
     }
     /*
      From stackoverflow.com:

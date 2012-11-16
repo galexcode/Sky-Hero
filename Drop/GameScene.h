@@ -47,7 +47,13 @@ typedef struct
     float scriptActionInterval;
     Script* script;
     int currentAction;
+    
+    //分数label
+    CCNode<CCLabelProtocol> *scoreLabel;
+    //总分
+    int score;
 }
+-(void) updateScore:(int)theScore;
 +(GameScene*) sharedGameScene;
 +(CCScene *) scene;
 +(CGRect) screenRect;

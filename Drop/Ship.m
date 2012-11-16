@@ -66,6 +66,23 @@ static Ship* shipInstance;
         pos.x = rightBorderLimit;
         playerVelocity = CGPointZero;
     }
+    
+    //改变飞机飞行的形态
+    CCSpriteFrameCache* frameCache = [CCSpriteFrameCache sharedSpriteFrameCache];
+    NSString* file;
+    float dis = pos.x - position_.x;
+    float th = 2.5;
+    if (dis < th && dis > -th) {
+        file = [NSString stringWithFormat:@"thunder.png"];
+    }else if (dis <= th){
+        file = [NSString stringWithFormat:@"thunder_left.png"];
+    }else{
+        file = [NSString stringWithFormat:@"thunder_right.png"];
+    }
+    CCSpriteFrame* frame = [frameCache spriteFrameByName:file];
+    [self setDisplayFrame:frame];
+    
+    //改变飞机位置
     self.position = pos;
     
     //发射子弹
@@ -75,9 +92,6 @@ static Ship* shipInstance;
         nextShotTime = totalTime + 0.4f;
         shootComponent.startPosition = self.position;
         [shootComponent shoot];
-//        CGPoint shotPos = ccp(self.position.x, self.position.y);
-//        CGPoint velocity = ccp(0,200);
-//        [[GameScene sharedGameScene].bulletCache shootBulletAt:shotPos velocity:velocity frameName:@"bullet.png" isPlayerBullet:YES];
     }
     
     [self checkForBulletCollisions];

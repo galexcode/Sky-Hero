@@ -22,8 +22,11 @@ typedef enum
 }EnemyTypes;
 @interface Enemy : Entity {
     EnemyTypes type;
+    //射击频率
     float shootFrequency;
     float shootingTime;
+    //击落后的得分
+    int score;
     
     BOOL isOnScreen;
     
@@ -46,4 +49,5 @@ typedef enum
 -(void) update:(ccTime)delta;
 @property (nonatomic,copy)BasicMoveComponent* moveComponent;
 @property (nonatomic)CGPoint startPosition;
+@property (nonatomic,readonly)int score;
 @end

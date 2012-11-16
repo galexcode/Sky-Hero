@@ -18,6 +18,7 @@
     {
         initialHitPoints = 40;
         hitPoints = initialHitPoints;
+        score = 10;
         
         //添加设计与子弹类型
         shootFrequency = 1.0;

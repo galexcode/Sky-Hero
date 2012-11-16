@@ -61,6 +61,11 @@ static GameScene* instanceOfGameScene;
         [healthbar reset];
         [self addChild:healthbar];
         
+        //初始化分数牌
+        scoreLabel = [CCLabelBMFont labelWithString:@"0" fntFile:@"bitmapfont.fnt"];
+        scoreLabel.position = ccp(screenSize.width * 0.5, screenSize.height * 0.5);
+        [self addChild:scoreLabel];
+        
         //初始化bulletcache
         bulletCache = [BulletCache node];
         [self addChild:bulletCache z:1 tag:BulletCacheTag];
@@ -103,6 +108,13 @@ static GameScene* instanceOfGameScene;
 			}
 		}
 	}
+}
+
+-(void) updateScore:(int)theScore
+{
+    //加分
+    score += theScore;
+    [scoreLabel setString:[NSString stringWithFormat:@"%i", score]];
 }
 
 -(void) onEnter
